@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:edit, :update, :create, :destroy]
   end
 
-  resources :friendships, only: [:new, :create, :destroy]
+  resources :friendships, only: [:create, :destroy]
   resources :invitations, only: [:new, :create, :destroy]
 
   resources :users, only: [:show]
