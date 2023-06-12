@@ -4,4 +4,13 @@ class Invitation < ApplicationRecord
 
     validates :inviter, presence: true
     validates :invitee, presence: true
+
+    def accept
+        inviter.friends << invitee
+        destroy
+    end
+
+    def reject
+        destroy
+    end
 end

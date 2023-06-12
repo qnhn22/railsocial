@@ -1,0 +1,13 @@
+<h1>Let's connect with others</h1>
+<% if @not_friends.empty? %>
+    <p>You are connected with all users</p>
+<% else %>
+    <ul>
+        <% @not_friends.each do |user| %>
+            <li>
+                <%= link_to user.email, user_path(user) %> 
+                <%= button_to "Connect", invitations_path(inviter_id: current_user.id, invitee_id: user.id) %>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
