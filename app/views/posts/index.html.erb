@@ -1,0 +1,8 @@
+<h1>Welcome to RailSocial</h1>
+
+<% @posts.each do |post| %>
+    <div>
+        <h4><%= post.title %></h4>
+        <p><%= post.body %></p>
+    </div>
+<% end %>
