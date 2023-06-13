@@ -11,6 +11,6 @@ class FriendshipsController < ApplicationController
         @friendship = Friendship.find(params[:id])
         @friendship.destroy
 
-        redirect_back fallback_location: root_path
+        redirect_to root_path
     end
 end

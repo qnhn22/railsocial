@@ -53,7 +53,7 @@
                     <% current_user.received_invites.each do |invite| %>
                       <li> 
                         <%= link_to invite.inviter.email, invite.inviter %>
-                        <%= button_to "Accept", friendships_path(friend_id: invite.inviter_id), method: :post%>
+                        <%= button_to "Accept", friendships_path, params: {friend_id: invite.inviter_id}, method: :post%>
                       </li>
                     <% end %>
                   <% end %>
