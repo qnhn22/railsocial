@@ -2,7 +2,9 @@
     <%= render "comments/form", post: post %>
     <div class="comments">
         <% post.comments.order(created_at: :desc).each do |comment| %>
-            <%= render comment %>
+            <% if comment.parent_comment.nil? %>
+                <%= render "comments/comment", comment: comment %>
+            <% end %>
         <% end %>
     </div>
 </div>

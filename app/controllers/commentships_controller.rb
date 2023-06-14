@@ -1,2 +1,0 @@
-class CommentshipsController < ApplicationController
-end

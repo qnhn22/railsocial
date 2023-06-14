@@ -1,1 +1,19 @@
 <%= image_tag("", size: "40x40" , class: "rounded" ) %>
+
+
+<div class="reply_form">
+    <%= form_with(model: @commentship, url: commentships_path, method: "post") do |form| %>
+        <%= form.hidden_field :post_id, value: comment.post.id %>
+        <%= form.hidden_field :comment_id, value: comment.id %>
+        <%= form.text_area :body, placeholder: "Testing...", size: "15x3" %>
+        <%= form.submit "Reply" %>
+    <% end %>
+</div>
+
+<div class="comment_replies">
+    <% comment.comment_childs.order(created_at: :desc).each do |reply| %>
+        <div class="comment_reply">
+            <%= render 'comments/comment', comment: reply %>
+        </div>
+    <% end %>
+</div>

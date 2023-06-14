@@ -1,0 +1,4 @@
+<%= form_with(model: [post, post.comments.build], url: reply_post_comment_path(post, comment), method: :post) do |form| %>
+  <%= form.text_area :body, placeholder: "Reply..." %>
+  <button type="submit">Create</button>
+<% end %>
