@@ -1,0 +1,11 @@
+<div>
+    <div>
+        <div> <%= link_to post.author.email, post.author, data: { turbo_frame: "_top" } %> </div>
+        <div> 
+            <%= post.created_at %> 
+            <% if post.created_at != post.updated_at %>
+                <%= post.updated_at %>
+            <% end %>
+        </div>
+    </div>
+</div>

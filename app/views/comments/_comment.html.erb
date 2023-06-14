@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <div>
+            <div> <%= link_to comment.author.email, comment.author %> </div>
+            <div> 
+                <%= comment.created_at %> 
+                <% if comment.created_at != comment.updated_at %>
+                    | (<%= comment.updated_at %>)
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div> 
+        <%= comment.body %> 
+    </div>
+</div>

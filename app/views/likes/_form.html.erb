@@ -1,0 +1,5 @@
+<%= form_with(model: [post, post.likes.build], method: :post) do |form| %>
+  <button type="submit">
+    Like
+  </button>
+<% end %>

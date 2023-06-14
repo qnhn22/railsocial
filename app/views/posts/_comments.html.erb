@@ -1,0 +1,8 @@
+<div>
+    <%= render "comments/form", post: post %>
+    <div class="comments">
+        <% post.comments.order(created_at: :desc).each do |comment| %>
+            <%= render comment %>
+        <% end %>
+    </div>
+</div>

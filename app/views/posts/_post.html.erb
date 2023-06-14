@@ -1,0 +1,9 @@
+<div>
+    <%= render "/posts/navbar", post: post %>
+    <div><%= post.title %></div>
+    <div><%= post.body %></div>
+
+    <%= render "/posts/likes", post: post %>
+    <%= render "/posts/menu", post: post %>
+    <%= render "/posts/comments", post: post %>
+</div>

@@ -1,0 +1,2 @@
+class CommentshipsController < ApplicationController
+end

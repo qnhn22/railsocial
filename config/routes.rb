@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :friendships, only: [:create, :destroy]
   resources :invitations, only: [:new, :create, :destroy]
 
-  resources :users, only: [:show]
   resources :profiles, except: [:index]
+  resources :users
   # Defines the root path route ("/")
   root "posts#index"
 end

@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :inviters, through: :received_invites
 
   has_many :friendships, dependent: :destroy
-  has_many :friends, through: :friendships  
+  has_many :friends, through: :friendships 
 
   def remove_friend(friend)
     self.friends.destroy(friend)

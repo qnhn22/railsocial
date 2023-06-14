@@ -1,0 +1,4 @@
+<%= form_with(model: [@post, @comment]) do |form| %>
+    <%= form.text_area :body, value: @comment.body%>
+    <button>Edit</button>
+<% end %>

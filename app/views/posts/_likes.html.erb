@@ -1,0 +1,16 @@
+<div>
+    <% if post.likes.count > 0 %>
+        <button type="button">
+            <%= post.likes.count %> Likes
+        </button>
+            <div>
+                <ul class="list-group">
+                    <% post.likes.order(created_at: :desc).each do |like| %>
+                        <%= link_to(like.user) do %>
+                            <%= like.user.email %>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </div>
+    <% end %>
+</div>

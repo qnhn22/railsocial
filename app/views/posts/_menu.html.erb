@@ -1,0 +1,10 @@
+<div>
+    <% if post.likes.pluck(:user_id).include?(current_user.id) %>
+        <%= render "likes/unlike_form", post: post %>
+    <% else %>
+        <%= render "likes/form", post: post %>
+    <% end %>
+    <button>
+        Comments
+    </button>
+</div>

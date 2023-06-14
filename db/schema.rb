@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_031056) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_103917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_031056) do
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
+
+  create_table "commentships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "comment_child_id", null: false
+    t.bigint "comment_id"
+    t.index ["comment_child_id"], name: "index_commentships_on_comment_child_id"
+    t.index ["comment_id"], name: "index_commentships_on_comment_id"
+  end
+
 
   create_table "friendships", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -85,6 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_031056) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users", column: "author_id"
+  add_foreign_key "commentships", "comments"
+  add_foreign_key "commentships", "comments", column: "comment_child_id"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "invitations", "users", column: "invitee_id"

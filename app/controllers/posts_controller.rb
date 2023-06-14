@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     end
 
     def edit
-        fetch_post
+        @post = Post.find(params[:id])
     end
 
     def update
