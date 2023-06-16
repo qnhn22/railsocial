@@ -22,6 +22,12 @@ class User < ApplicationRecord
   def remove_friend(friend)
     self.friends.destroy(friend)
   end
+
+  after_create :welcome_send
+
+  def welcome_send
+    WelcomeMailer.welcome_email(self).deliver
+  end
 end
 
 
