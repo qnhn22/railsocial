@@ -6,9 +6,7 @@
             <div>
                 <ul class="list-group">
                     <% post.likes.order(created_at: :desc).each do |like| %>
-                        <%= link_to(like.user) do %>
                             <%= like.user.email %>
-                        <% end %>
                     <% end %>
                 </ul>
             </div>

@@ -25,15 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_022330) do
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
-  create_table "commentships", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "comment_child_id", null: false
-    t.bigint "comment_id"
-    t.index ["comment_child_id"], name: "index_commentships_on_comment_child_id"
-    t.index ["comment_id"], name: "index_commentships_on_comment_id"
-  end
-
   create_table "friendships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,8 +87,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_022330) do
   add_foreign_key "comments", "comments", column: "parent_comment_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users", column: "author_id"
-  add_foreign_key "commentships", "comments"
-  add_foreign_key "commentships", "comments", column: "comment_child_id"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "invitations", "users", column: "invitee_id"
